@@ -7,4 +7,4 @@ entry_points:
     parameters:
       n_estimators: {type: int, default: 150}
       max_depth: {type: int, default: 10}
-    command: "python modelling.py"
+    command: "python modelling.py --n_estimators {n_estimators} --max_depth {max_depth}"

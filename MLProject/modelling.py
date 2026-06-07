@@ -1,4 +1,5 @@
 import os
+import argparse
 from pathlib import Path
 
 import mlflow
@@ -8,6 +9,13 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 
 DATA_DIR = Path("breast_cancer_preprocessing")
+
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--n_estimators", type=int, default=int(os.getenv("N_ESTIMATORS", 150)))
+    parser.add_argument("--max_depth", default=os.getenv("MAX_DEPTH", 10))
+    return parser.parse_args()
 
 
 def main(n_estimators=150, max_depth=10):
@@ -39,7 +47,5 @@ def main(n_estimators=150, max_depth=10):
 
 
 if __name__ == "__main__":
-    main(
-        n_estimators=os.getenv("N_ESTIMATORS", 150),
-        max_depth=os.getenv("MAX_DEPTH", 10),
-    )
+    args = parse_args()
+    main(n_estimators=args.n_estimators, max_depth=args.max_depth)
