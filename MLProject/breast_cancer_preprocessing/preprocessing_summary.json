@@ -1,0 +1,15 @@
+{
+  "dataset_name": "Breast Cancer Wisconsin Diagnostic",
+  "rows_after_cleaning": 569,
+  "features": 30,
+  "target": "diagnosis",
+  "train_rows": 455,
+  "test_rows": 114,
+  "scaling": "StandardScaler",
+  "random_state": 42,
+  "test_size": 0.2,
+  "class_distribution": {
+    "1": 357,
+    "0": 212
+  }
+}
